@@ -10,3 +10,5 @@
   <img width = "800" src="screenshots/chart_blockchain.png"/>
 <p align="center"><b>The chart shows how blockchain works</b><p align="center">
 </p>
+
+<hr>
