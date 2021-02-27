@@ -1,8 +1,6 @@
 {
-	"name":  "oleg",
-	"amont": 10,
-	"to_whom": "petja petrov",
-	"hash": ""
-
-
+    "name": "ivan",
+    "amount": 100,
+    "to_whom": "serg",
+    "hash": ""
 }
