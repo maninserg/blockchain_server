@@ -3,16 +3,21 @@ import os
 import hashlib
 
 
+blockchain_dir = os.curdir + "/blockchain/"
+
+
+def get_blocks():
+    list_blocks = os.listdir(blockchain_dir)
+    return sorted([int(x) for x in list_blocks])
+
+
 def get_hash(filename):
-    blockchain_dir = os.curdir + "/blockchain/"
     fl = open(blockchain_dir + filename, "rb").read()
     return hashlib.sha256(fl).hexdigest()
 
 
 def check_blocks():
-    blockchain_dir = os.curdir + "/blockchain/"
-    list_blocks = os.listdir(blockchain_dir)
-    list_blocks = sorted([int(x) for x in list_blocks])
+    list_blocks = get_blocks()
     for block in list_blocks[1:]:
         hash_read = json.load(open(blockchain_dir + str(block)))["hash"]
         prev_block = str(block - 1)
@@ -25,12 +30,10 @@ def check_blocks():
 
 
 def write_block(name, amount, to_whom, prev_hash=""):
-    blockchain_dir = os.curdir + "/blockchain/"
-    list_blocks = os.listdir(blockchain_dir)
-    list_blocks = sorted([int(x) for x in list_blocks])
-    last_block = list_blocks[-1]
-    cur_block = str(last_block + 1)
-    prev_hash = get_hash(str(last_block))
+    list_blocks = get_blocks()
+    prev_block = list_blocks[-1]
+    cur_block = str(prev_block + 1)
+    prev_hash = get_hash(str(prev_block))
     data = {"name": name,
             "amount": amount,
             "to_whom": to_whom,
