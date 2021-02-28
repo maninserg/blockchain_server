@@ -9,6 +9,21 @@ def get_hash(filename):
     return hashlib.sha256(fl).hexdigest()
 
 
+def check_blocks():
+    blockchain_dir = os.curdir + "/blockchain/"
+    list_blocks = os.listdir(blockchain_dir)
+    list_blocks = sorted([int(x) for x in list_blocks])
+    for block in list_blocks[1:]:
+        hash_read = json.load(open(blockchain_dir + str(block)))["hash"]
+        prev_block = str(block - 1)
+        hash_calc = get_hash(prev_block)
+        if hash_read == hash_calc:
+            result = "Ok"
+        else:
+            result = "Corrupted"
+        print("Block {} is {}".format(prev_block, result))
+
+
 def write_block(name, amount, to_whom, prev_hash=""):
     blockchain_dir = os.curdir + "/blockchain/"
     list_blocks = os.listdir(blockchain_dir)
@@ -29,4 +44,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    check_blocks()
