@@ -18,6 +18,7 @@ def get_hash(filename):
 
 def check_blocks():
     list_blocks = get_blocks()
+    results = []
     for block in list_blocks[1:]:
         hash_read = json.load(open(blockchain_dir + str(block)))["hash"]
         prev_block = str(block - 1)
@@ -26,7 +27,8 @@ def check_blocks():
             result = "Ok"
         else:
             result = "Corrupted"
-        print("Block {} is {}".format(prev_block, result))
+        results.append({"block": prev_block, "result": result})
+    return results
 
 
 def write_block(name, amount, to_whom, prev_hash=""):
