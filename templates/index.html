@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="{{ url_for("index") }}" method="POST">
+  <div class="row mb-3">
+    <label for="inputLender" class="col-sm-2 col-form-label">Кредитор</label>
+    <div class="col-sm-10">
+	    <input type="text" class="form-control" id="inputLender" placeholder="Имя" name="lender" value="{{ request.form.get('lender', '') }}">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="inputAmount" class="col-sm-2 col-form-label">Сумма</label>
+    <div class="col-sm-10">
+	    <input type="text" class="form-control" id="inputAmount" placeholder="Сумма" name="amount" value="{{ request.form.get('amount', '') }}">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="inputBorrower" class="col-sm-2 col-form-label">Заемщик</label>
+    <div class="col-sm-10">
+	    <input type="text" class="form-control" id="inputBorrower" placeholder="Имя" name="borrower" value="{{ request.form.get('borrower', '') }}">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Сохранить</button>
+
+</form>
+{% endblock %}
