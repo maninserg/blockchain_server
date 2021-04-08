@@ -12,3 +12,10 @@
 </p>
 
 <hr>
+
+**Screenshots**
+
+<p align="center">
+  <img width = "800" src="screenshots/blockserver.jpg"/>
+<p align="center"><b>The blockchain server</b><p align="center">
+</p>
