@@ -4,27 +4,40 @@
 
 <form action="{{ url_for("index") }}" method="POST">
   <div class="row mb-3">
-    <label for="inputLender" class="col-sm-2 col-form-label">Кредитор</label>
+	  <label for="inputLender" class="col-sm-2 col-form-label">Lender</label>
     <div class="col-sm-10">
-	    <input type="text" class="form-control" id="inputLender" placeholder="Имя" name="lender" value="{{ request.form.get('lender', '') }}">
+	    <input type="text" class="form-control" id="inputLender" placeholder="Name" name="lender" value="{{ request.form.get('lender', '') }}">
     </div>
   </div>
 
   <div class="row mb-3">
-    <label for="inputAmount" class="col-sm-2 col-form-label">Сумма</label>
+    <label for="inputAmount" class="col-sm-2 col-form-label">Amount</label>
     <div class="col-sm-10">
-	    <input type="text" class="form-control" id="inputAmount" placeholder="Сумма" name="amount" value="{{ request.form.get('amount', '') }}">
+	    <input type="text" class="form-control" id="inputAmount" placeholder="Amount" name="amount" value="{{ request.form.get('amount', '') }}">
     </div>
   </div>
 
   <div class="row mb-3">
-    <label for="inputBorrower" class="col-sm-2 col-form-label">Заемщик</label>
+    <label for="inputBorrower" class="col-sm-2 col-form-label">Borrower</label>
     <div class="col-sm-10">
-	    <input type="text" class="form-control" id="inputBorrower" placeholder="Имя" name="borrower" value="{{ request.form.get('borrower', '') }}">
+	    <input type="text" class="form-control" id="inputBorrower" placeholder="Name" name="borrower" value="{{ request.form.get('borrower', '') }}">
     </div>
   </div>
-
-  <button type="submit" class="btn btn-primary">Сохранить</button>
+	<div class="col-6 mx-auto mt-2 text-center">
+  		<button type="submit" class="btn btn-primary">Write block</button>
+	</div>
 
 </form>
+
+{% endblock %}
+
+
+{% block checking %}
+
+	{% for res in results %}
+	<div class="result">
+		block {{ res['block'] }} : {{ res['result'] }}
+	</div>
+	{% endfor %}
+
 {% endblock %}
