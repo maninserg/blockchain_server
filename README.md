@@ -10,7 +10,6 @@ The simple blockchain server is made by with the help of Flask
 <p align="center"><b>The chart shows how blockchain works</b><p align="center">
 </p>
 
-<hr>
 
 ## Screenshots
 
