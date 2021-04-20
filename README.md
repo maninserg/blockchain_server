@@ -1,10 +1,9 @@
 # blockchain_server
 
-**About:** The simple blockchain server is made by with the help of Flask
+The simple blockchain server is made by with the help of Flask
 
-<hr>
 
-**Description:**
+## Description
 
 <p align="center">
   <img width = "800" src="screenshots/chart_blockchain.png"/>
@@ -13,7 +12,7 @@
 
 <hr>
 
-**Screenshots**
+## Screenshots
 
 <p align="center">
   <img width = "800" src="screenshots/blockserver.jpg"/>
